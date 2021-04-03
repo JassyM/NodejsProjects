@@ -6,7 +6,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, u
   .then(() => { console.log('Connection to database established')})
   .catch(err => {
     console.log(`db error ${err.message}`);
-    process.exit(-1)
+    process.exit(-1);
   });
 const technologies = [
   {
