@@ -21,16 +21,16 @@ export class TechnologyComponent implements OnInit {
   };
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
-    private _httpService: HttpService
+    private activatedRoute: ActivatedRoute,
+    private httpService: HttpService
   ) { }
 
   ngOnInit(): void {
-    this._activatedRoute.params.subscribe((params) => {
-      const id = params['id'];
-      this._httpService.getTechnology(id).subscribe((technology: Technology) => {
+    this.activatedRoute.params.subscribe((params) => {
+      const id = params.id;
+      this.httpService.getTechnology(id).subscribe((technology: Technology) => {
         this.technology = technology['data'];
-      })
+      });
     });
   }
 

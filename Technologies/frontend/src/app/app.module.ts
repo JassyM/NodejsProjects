@@ -10,7 +10,7 @@ import { TechnologyComponent } from './pages/technology/technology.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SearchComponent } from './pages/search/search.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ // Se agregan los componentes que se crean

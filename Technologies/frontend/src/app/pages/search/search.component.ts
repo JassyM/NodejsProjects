@@ -14,14 +14,14 @@ export class SearchComponent implements OnInit {
   query: string;
 
   constructor(
-    private _activatedRoute: ActivatedRoute,
-    private _httpService: HttpService
+    private activatedRoute: ActivatedRoute,
+    private httpService: HttpService
   ) { }
 
   ngOnInit(): void {
-    this._activatedRoute.params.subscribe((params) => {
-      this.query = params['query'];
-      this._httpService.searchTechnology(this.query).subscribe((technologies: Technology[]) => {
+    this.activatedRoute.params.subscribe((params) => {
+      this.query = params.query;
+      this.httpService.searchTechnology(this.query).subscribe((technologies: Technology[]) => {
         this.technologies = technologies['data'];
       });
     });

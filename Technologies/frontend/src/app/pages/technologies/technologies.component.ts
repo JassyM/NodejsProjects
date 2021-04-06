@@ -11,10 +11,10 @@ export class TechnologiesComponent implements OnInit {
 
   public technologies: Technology[];
 
-  constructor(private _httpService: HttpService) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this._httpService.getTechnologies().subscribe((technologies: Technology[]) => {
+    this.httpService.getTechnologies().subscribe((technologies: Technology[]) => {
       this.technologies = technologies['data'];
     });
   }

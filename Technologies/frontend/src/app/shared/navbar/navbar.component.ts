@@ -11,19 +11,19 @@ export class NavbarComponent implements OnInit {
   isCollapse = false;
 
   constructor(
-    private _router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
-  searchTechnology(query: string) {
-    this._router.navigate(['/search', query]);
+  searchTechnology(query: string): void {
+    this.router.navigate(['/search', query]);
   }
 
-  toggleState() {
-    let foo = this.isCollapse;
-    this.isCollapse = foo === false ? true : false; 
+  toggleState(): void {
+    const foo = this.isCollapse;
+    this.isCollapse = foo === false ? true : false;
   }
 
 }
