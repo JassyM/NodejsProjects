@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isCollapse = false;
+
+  constructor(
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  searchTechnology(query: string) {
+    this._router.navigate(['/search', query]);
+  }
+
+  toggleState() {
+    let foo = this.isCollapse;
+    this.isCollapse = foo === false ? true : false; 
   }
 
 }

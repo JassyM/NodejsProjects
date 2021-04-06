@@ -1,0 +1,11 @@
+.technologies-content {
+  column-count:4;
+  column-gap: 20px;
+}
+
+.technologies-content>app-technology-card {
+  background: #c1c1ff;
+  display: block;
+  margin-bottom: 20px;
+  break-inside:avoid;
+}

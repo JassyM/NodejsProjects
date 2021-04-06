@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TechnologyCardComponent } from './components/technology-card/technology-card.component';
-import { AboutComponent } from './pages/about/about.component';
 import { TechnologiesComponent } from './pages/technologies/technologies.component';
 import { TechnologyComponent } from './pages/technology/technology.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http'
   declarations: [ // Se agregan los componentes que se crean
     AppComponent,
     TechnologyCardComponent,
-    AboutComponent,
     TechnologiesComponent,
     TechnologyComponent,
     HomeComponent,
@@ -26,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [ // Se agregan los módulos a usar
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [], // Se agregan los archivos o servicios que se van a compartir con otros módulos
   bootstrap: [AppComponent]
