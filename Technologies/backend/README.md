@@ -11,3 +11,14 @@
 
 * Dotenv
 * Nodemon
+
+## Endpoints
+
+* Listar tecnologías
+>> /api/technologies
+
+* Consultar una tecnología por id
+> /api/technology/:id
+
+* Consultar tecnologías por nombre
+> /api/technology/search/:name
