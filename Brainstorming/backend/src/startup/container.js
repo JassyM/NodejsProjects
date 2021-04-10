@@ -14,6 +14,8 @@ const { HomeController } = require('../controllers');
 const { HomeRoutes } = require('../routes/index.routes');
 const Routes = require('../routes');
 
+// Models
+const { User, Idea, Comment } = require('../models');
 
 const container = createContainer();
 
@@ -28,12 +30,19 @@ container
     // HomeService es el key con el que se va a identificar la inyección
     // y lo que va a inyectar.
     // Se va a inyectar una clase: HomeService, como un singleton.
-  }).register({
+  })
+  .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton()
     // Se agrega el método bind porque Express al momento de llamar un controlador
     // el scope cambia. El scope que se pone es el de Express
-  }).register({
+  })
+  .register({
     HomeRoutes: asFunction(HomeRoutes).singleton()
+  })
+  .register({
+    User: asValue(User),
+    Idea: asValue(Idea),
+    Comment: asValue(Comment)
   });
 
 module.exports = container;
