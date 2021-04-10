@@ -4,13 +4,13 @@ const { Schema } = mongoose;
 const CommentSchema = new Schema({
   comment: { type: String, require: true },
   author: { 
-    type: Schema.Types.Obje0ctId,
-    ref:'user',
+    type: Schema.Types.ObjectId,
+    ref: 'user',
     require: true,
     autopopulate: true 
   }
 });
 
-CommentSchema.plugin(require('mongoose-autoprotocol'));
+CommentSchema.plugin(require('mongoose-autopopulate'));
 
 module.exports = mongoose.model('comment', CommentSchema);
