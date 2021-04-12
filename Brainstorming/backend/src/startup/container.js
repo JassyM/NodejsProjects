@@ -5,7 +5,12 @@ const config = require('../config');
 const app = require('.');
 
 // Services
-const { HomeService } = require('../services');
+const { 
+  HomeService,
+  UserService,
+  IdeaService,
+  CommentService
+} = require('../services');
 
 // Controllers
 const { HomeController } = require('../controllers');
@@ -29,10 +34,13 @@ container
     config: asValue(config)
   })
   .register({ // Crea una nueva clase de inyección
-    HomeService: asClass(HomeService).singleton()
+    HomeService: asClass(HomeService).singleton(),
     // HomeService es el key con el que se va a identificar la inyección
     // y lo que va a inyectar.
     // Se va a inyectar una clase: HomeService, como un singleton.
+    UserService: asClass(UserService).singleton(),
+    IdeaService: asClass(IdeaService).singleton(),
+    CommentService: asClass(CommentService).singleton()
   })
   .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton()

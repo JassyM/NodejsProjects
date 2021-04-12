@@ -3,6 +3,6 @@ module.exports = (err, req, res, next) => {
 
   return res.status(httpStatus).send({
     status: httpStatus,
-    message: err.nessage || 'Internal server error'
-  })
+    message: err.message || 'Internal server error'
+  });
 }
