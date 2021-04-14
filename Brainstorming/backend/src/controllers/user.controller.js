@@ -1,4 +1,4 @@
-let _userService
+let _userService = null;
 class UserController {
   constructor({ UserService }) {
     _userService = UserService;
