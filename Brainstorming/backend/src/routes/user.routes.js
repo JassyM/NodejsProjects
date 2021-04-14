@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const { AuthMiddleware } = require('../middlewares')
+const { AuthMiddleware, ParseIntMiddleware } = require('../middlewares')
 
 module.exports = function({ UserController }) { // function hace de constructor
   const router = Router();
 
-  router.get('', [AuthMiddleware], UserController.getAll);
+  router.get('', [AuthMiddleware, ParseIntMiddleware], UserController.getAll);
   // Para proteger la ruta de obtener todos los usuarios, se agrega el
   // middleware (AuthMiddleware) antes del método que resuelve dicha ruta
   router.get('/:userId', UserController.get);
