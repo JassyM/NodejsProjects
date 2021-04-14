@@ -9,7 +9,8 @@ const {
   HomeService,
   UserService,
   IdeaService,
-  CommentService
+  CommentService,
+  AuthService
 } = require('../services');
 
 // Controllers
@@ -17,7 +18,8 @@ const {
   HomeController,
   UserController,
   IdeaController,
-  CommentController
+  CommentController,
+  AuthController
 } = require('../controllers');
 
 // Routes
@@ -25,7 +27,8 @@ const {
   HomeRoutes,
   UserRoutes,
   IdeaRoutes,
-  CommentRoutes
+  CommentRoutes,
+  AuthRoutes
 } = require('../routes/index.routes');
 const Routes = require('../routes');
 
@@ -50,7 +53,8 @@ container
     // Se va a inyectar una clase: HomeService, como un singleton.
     UserService: asClass(UserService).singleton(),
     IdeaService: asClass(IdeaService).singleton(),
-    CommentService: asClass(CommentService).singleton()
+    CommentService: asClass(CommentService).singleton(),
+    AuthService: asClass(AuthService).singleton()
   })
   .register({
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
@@ -58,13 +62,15 @@ container
     // el scope cambia. El scope que se pone es el de Express
     UserController: asClass(UserController.bind(UserController)).singleton(),
     IdeaController: asClass(IdeaController.bind(IdeaController)).singleton(),
-    CommentController: asClass(CommentController.bind(CommentController)).singleton()
+    CommentController: asClass(CommentController.bind(CommentController)).singleton(),
+    AuthController: asClass(AuthController.bind(CommentController)).singleton()
   })
   .register({
     HomeRoutes: asFunction(HomeRoutes).singleton(),
     UserRoutes: asFunction(UserRoutes).singleton(),
     IdeaRoutes: asFunction(IdeaRoutes).singleton(),
-    CommentRoutes: asFunction(CommentRoutes).singleton()
+    CommentRoutes: asFunction(CommentRoutes).singleton(),
+    AuthRoutes: asFunction(AuthRoutes).singleton()
   })
   .register({
     User: asValue(User),
