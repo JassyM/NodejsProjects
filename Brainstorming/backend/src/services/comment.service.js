@@ -10,7 +10,7 @@ class CommentService extends BaseService {
   }
 
   async getIdeaComments(ideaId) {
-    if (ideaId) {
+    if (!ideaId) {
       const error = new Error();
       error.status = 400;
       error.message = 'ideaId must be sent';
@@ -31,7 +31,7 @@ class CommentService extends BaseService {
   }
 
   async createComment(comment, ideaId) {
-    if (ideaId) {
+    if (!ideaId) {
       const error = new Error();
       error.status = 400;
       error.message = 'ideaId must be sent';

@@ -57,7 +57,7 @@ class IdeaService extends BaseService {
       throw error;
     }
 
-    idea.downvoteIdea.push(true);
+    idea.downvotes.push(true);
 
     return await _ideaRepository.update(ideaId, { downvotes: idea.downvotes });
   }

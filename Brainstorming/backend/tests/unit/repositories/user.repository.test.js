@@ -28,7 +28,7 @@ describe('User Repository Tests', () => {
     // toMatchObject() Valida de que el contenido de la variable 'expected' sea igual a _user
   });
 
-  it('Should return a user by id', async () => {
+  it('Should return a user by username', async () => {
     const _user = {...user};
     delete _user.password;
 

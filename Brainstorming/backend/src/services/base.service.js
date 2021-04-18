@@ -31,7 +31,7 @@ class BaseService {
     return await this.repository.create(entity);
   }
 
-  async update() {
+  async update(id, entity) {
     if(!id) {
       const error = new Error();
       error.status = 400;
