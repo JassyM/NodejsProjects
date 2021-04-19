@@ -4,6 +4,9 @@ const helmet = require('helmet'); // Sirve para algunas brechas de seguridad
 const compression = require('compression'); // Ayuda a comprimir las peticiones HTTP
 require('express-async-errors'); // Ayuda a capturar en un middleware las excepciones asincronas
 const { NotFoundMiddleware, ErrorMiddleware } = require('../middlewares');
+const swaggerUI = require('swagger-ui-express');
+const { SWAGGER_PATH } = require('../config');
+const swaggerDocument = require(SWAGGER_PATH);
 
 module.exports = function({
   HomeRoutes,
@@ -30,6 +33,7 @@ module.exports = function({
   apiRoutes.use('/auth', AuthRoutes);
 
   router.use('/v1/api', apiRoutes); // Indica que todos los endpoints tengan esa ruta
+  router.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
   router.use(NotFoundMiddleware);
   router.use(ErrorMiddleware);
