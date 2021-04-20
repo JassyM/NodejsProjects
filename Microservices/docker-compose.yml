@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  monolithic:
+    build: ./monolithic
+
+  users:
+    build: ./microservices/user-service
+
+  cars:
+    build: ./microservices/car-service
+
+  books:
+    build: ./microservices/book-service
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes: # Se crea el volumen para que se mapee con el archivo nginx.conf
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      # el nginx.conf se mapea con /etc/nginx/conf.d/default.conf
+      # /etc/nginx es la ruta donde se guarda el archivo nginx por defecto en el container
+    depends_on:
+      - monolithic # Tiene que existir el servicio de monolithic, de lo contrario no se expondría este servicio nginx
+      - users
+      - cars
+      - books
